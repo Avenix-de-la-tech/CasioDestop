@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CasioDestop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <main class="calculatrice">
+    <!-- Écran : ligne du haut = ancien calcul, grande ligne = saisie / résultat -->
+    <section class="ecran" aria-live="polite">
+      <div id="ligne-historique" class="ecran__historique"></div>
+      <div id="resultat" class="ecran__resultat">0</div>
+    </section>
+
+    <!-- Clavier : data-action = ce que fait le bouton, data-valeur = sa valeur -->
+    <section class="clavier">
+      <button class="bouton bouton--danger"   data-action="effacer">AC</button>
+      <button class="bouton bouton--fonction" data-action="supprimer">DEL</button>
+      <button class="bouton bouton--operateur" data-action="operateur" data-valeur="÷">÷</button>
+      <button class="bouton bouton--operateur" data-action="operateur" data-valeur="×">×</button>
+
+      <button class="bouton" data-action="nombre" data-valeur="7">7</button>
+      <button class="bouton" data-action="nombre" data-valeur="8">8</button>
+      <button class="bouton" data-action="nombre" data-valeur="9">9</button>
+      <button class="bouton bouton--operateur" data-action="operateur" data-valeur="−">−</button>
+
+      <button class="bouton" data-action="nombre" data-valeur="4">4</button>
+      <button class="bouton" data-action="nombre" data-valeur="5">5</button>
+      <button class="bouton" data-action="nombre" data-valeur="6">6</button>
+      <button class="bouton bouton--operateur" data-action="operateur" data-valeur="+">+</button>
+
+      <button class="bouton" data-action="nombre" data-valeur="1">1</button>
+      <button class="bouton" data-action="nombre" data-valeur="2">2</button>
+      <button class="bouton" data-action="nombre" data-valeur="3">3</button>
+      <button class="bouton bouton--egal" data-action="egal">=</button>
+
+      <button class="bouton bouton--zero" data-action="nombre" data-valeur="0">0</button>
+      <button class="bouton" data-action="decimale">.</button>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+/* ---------- Variables : on change les couleurs à UN seul endroit ---------- */
+:root {
+  --fond-page: #0f1115;
+  --fond-calculatrice: #1a1d24;
+  --fond-ecran: #0b0d10;
+  --fond-bouton: #2a2e38;
+  --fond-bouton-survol: #353a46;
+  --couleur-texte: #e8eaed;
+  --couleur-discrete: #8b919c;
+  --couleur-accent: #ff9f1c;   /* orange pour les opérateurs */
+  --couleur-danger: #e5484d;
+  --rayon: 14px;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;            /* centre la calculatrice */
+  background: var(--fond-page);
+  color: var(--couleur-texte);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* ---------- Boîtier ---------- */
+.calculatrice {
+  width: 340px;
+  padding: 20px;
+  background: var(--fond-calculatrice);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- Écran ---------- */
+.ecran {
+  background: var(--fond-ecran);
+  border-radius: var(--rayon);
+  padding: 16px;
+  margin-bottom: 20px;
+  text-align: right;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.ecran__historique {
+  min-height: 20px;
+  font-size: 0.95rem;
+  color: var(--couleur-discrete);
+}
+
+.ecran__resultat {
+  font-size: 2.4rem;
+  font-weight: 300;
+  word-break: break-all;          /* évite le débordement des longs nombres */
+}
+
+/* ---------- Clavier : grille de 4 colonnes ---------- */
+.clavier {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.bouton {
+  padding: 18px 0;
+  font-size: 1.2rem;
+  color: var(--couleur-texte);
+  background: var(--fond-bouton);
+  border: none;
+  border-radius: var(--rayon);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.05s;
+}
+
+.bouton:hover  { background: var(--fond-bouton-survol); }
+.bouton:active { transform: scale(0.95); }   /* petit effet d'appui */
+
+.bouton--operateur { color: var(--couleur-accent); font-size: 1.4rem; }
+.bouton--fonction  { color: var(--couleur-discrete); }
+.bouton--danger    { color: var(--couleur-danger); }
+
+.bouton--egal {
+  grid-row: span 2;               /* le "=" occupe 2 lignes */
+  background: var(--couleur-accent);
+  color: #1a1d24;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.bouton--egal:hover { background: #ffb347; }
+
+.bouton--zero { grid-column: span 2; }  /* le "0" occupe 2 colonnes */
